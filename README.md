@@ -3,18 +3,25 @@ To do that we need a NFS server and a disk to storage volumes created by kuberne
 
 ## Install NFS
 In server:
+
 ``` apt install nfs-common nfs-kernel-server -y ```
+
 Clients:
+
 ``` apt install nfs-common ```
 
 ## Prepare disk to storage
 Once nfs-server was installed, go to your partition or lvm and mount in directory:
+
 ``` mkdir -p /mnt/kube_nfs && mount /dev/mapper/k8s-lvm /mnt/kube_nfs ```
 
 ## Export disk
 In /etc/exports put the next line:
+
 ``` /mnt/kube_nfs *(rw,sync,no_subtree_check) ```
+
 And export:
+
 ``` exportfs -a ```
 
 ## Create yaml's in K8s:
