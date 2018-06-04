@@ -1,3 +1,5 @@
+This deploy was configured to done in Kubernetes ARM cluster if you want do it in x86 you have to replace deploy/deployment.yaml for deployment-x86.yaml and then follow the step here describe.
+
 # kubernetes-nfs-storage
 To do that we need a NFS server and a disk to storage volumes created by kubernetes.
 
