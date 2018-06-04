@@ -17,16 +17,16 @@ spec:
           image: quay.io/external_storage/nfs-client-provisioner-arm:latest
           volumeMounts:
             - name: nfs-client-root
-              mountPath: /media
+              mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: fuseim.pri/vol
+              value: fuseim.pri/ifs
             - name: NFS_SERVER
               value: 192.168.50.141
             - name: NFS_PATH
-              value: /mnt
+              value: /mnt/kube_nfs
       volumes:
         - name: nfs-client-root
           nfs:
             server: 192.168.50.141
-            path: /mnt
+            path: /mnt/kube_nfs
